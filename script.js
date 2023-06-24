@@ -30,7 +30,7 @@ usernameInput.addEventListener("focus", (event) => {
     hand.classList.remove("peek");
   });
 
-  face.style.setProperty("--rotate-head", `${-length}deg`);
+  face.style.setProperty("--rotate-head", `${length}deg`);
 });
 
 usernameInput.addEventListener("blur", (event) => {
@@ -42,18 +42,22 @@ usernameInput.addEventListener(
   _.throttle((event) => {
     let length = Math.min(event.target.value.length - 16, 19);
 
-    face.style.setProperty("--rotate-head", `${-length}deg`);
+    face.style.setProperty("--rotate-head", `${length}deg`);
   }, 100)
 );
 
 showPasswordButton.addEventListener("click", (event) => {
   if (passwordInput.type === "text") {
+    //
+    showPasswordButton.innerHTML = "نمایش";
     passwordInput.type = "password";
     document.querySelectorAll(".hand").forEach((hand) => {
       hand.classList.remove("peek");
       hand.classList.add("hide");
     });
   } else {
+    showPasswordButton.innerHTML = "پنهان";
+
     passwordInput.type = "text";
     document.querySelectorAll(".hand").forEach((hand) => {
       hand.classList.remove("hide");
@@ -61,3 +65,27 @@ showPasswordButton.addEventListener("click", (event) => {
     });
   }
 });
+
+function validation() {
+  var userValue = document.getElementsByClassName("username")[0].value;
+  let isUserValid = userValue.length == 11;
+  let numValid = true;
+  for (let i = 0; i < 11; i++) {
+    if (userValue[i] <= 9 && userValue[i] >= 0) numValid = false;
+  }
+  if (isUserValid) {
+    alert("Correct phone number");
+  } else {
+    alert("not Correct phone number");
+  }
+}
+
+document.querySelector(".login-button").onclick = validation;
+document.getElementById("alert").style.display = "none";
+
+document.querySelector(".username").oninput = (event) => {
+  let userName = document.querySelector(".username").value 
+  if(userName.length != 11 ){
+    document.getElementById("alert").style.display = "";
+  }
+};

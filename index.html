@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <title>Animation Login Page</title>
+    <title>تست انیمیشن</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
@@ -12,12 +12,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+
+    <link href="https://v1.fontapi.ir/css/Estedad" rel="stylesheet" />
+
     <script src="script.js" defer></script>
     <!-- Dog SVG Source: https://www.youtube.com/watch?v=0u-ryYoDqVI -->
   </head>
   <body>
     <!-- SVG Image Start  -->
-    <div class="container">
+    <div class="container" style="direction: ltr">
       <div class="ear ear--left"></div>
       <div class="ear ear--right"></div>
       <div class="face">
@@ -91,15 +94,18 @@
       <!-- SVG Image End -->
 
       <!-- Form Start -->
-      <div class="tengah">
+      <div class="tengah" style="direction: rtl">
         <div class="login">
           <label>
+            <span id="alert"> مقدار وارد شده اشتباهه  </span>
             <div class="fas fa-user"></div>
             <input
               class="username"
               type="text"
               autocomplete="on"
-              placeholder="Username"
+              placeholder="نام‌کاربری"
+              autofocus
+              oninput=""
             />
           </label>
           <label>
@@ -108,11 +114,11 @@
               class="password"
               type="password"
               autocomplete="off"
-              placeholder="password"
+              placeholder="رمزورود"
             />
-            <button class="password-button">show</button>
+            <button class="password-button">نمایش</button>
           </label>
-          <button class="login-button">sign in</button>
+          <button class="login-button">ورود به حساب</button>
         </div>
       </div>
 
@@ -121,8 +127,8 @@
       <!-- Footer Start  -->
       <div class="footer">
         <p>
-          Don't have account yet?
-          <a class="footer-a" href="registrasi.html">Sign Up</a>
+          حساب کاربری نداری؟
+          <a class="footer-a" href="registrasi.html"> یکی بساز</a>
         </p>
       </div>
     </div>
